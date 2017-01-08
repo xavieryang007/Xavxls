@@ -1,0 +1,31 @@
+BUILD AND INSTALL
+=================
+
+* To build and install, for most environments:
+./configure
+make
+make install
+
+* To build a native Win32 library under cygwin, use this configure:
+CC='gcc -mno-cygwin' ./configure --host=mingw32 --build=mingw32 --with-iconv=no
+
+MAINTENANCE
+===========
+
+* To build versions for multiple architectures from the same place:
+- create a directory for each arch: arch-<arch-name>
+- call configure and make from within each directory
+
+* Do this when you update configure.in, or when there is an upgrade of autoconf/libtool versions:
+./bootstrap
+or:
+autoreconf -v --install --force
+then:
+./configure
+
+* To build a binary distribution, use the following commands after 
+  substituting the current version number (e.g., 0.30) for <version> and
+  the current computer architecture (e.g., i386)
+
+DESTDIR="$PWD/libxls-<version>-<arch>" make install
+tar cvzf libxls-<version>-<arch>.tar.gz libxls-<version>-<arch>
