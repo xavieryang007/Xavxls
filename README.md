@@ -1,6 +1,6 @@
 #Xavxls
 Xavxls是一个读取xls文件的PHP扩展（暂不支持写入）。在PHP开发中经常会读取excel，xlsx格式文件采用php直接读取速度还可以接受，xls格式文件就无法忍受了，一个10M的xls，根本就可以宣告无法读取了，因为消耗的内存和CPU实在太大了，而且慢的无可救药。因此，Xavxls就应运而生了。
-支持捐款
+
 
 ##Xavxls 编译环境搭建
 ###Xavxls目录结构
@@ -37,6 +37,7 @@ PHP-CPP-LEGACY PHP5.X版本  github下载地址 [https://github.com/CopernicaMar
 ###编译LIBXLS
 libxls项目地址[http://libxls.sourceforge.net/](http://libxls.sourceforge.net/)
 libxls是一个跨平台的xls读取库
+建议从官网下载libxls，因为上传的这个configure等一些文件的执行权限丢失了！可能在编译时会导致一些问题。如果你对linux非常熟悉，当然也可以编译
 
 ```
 ./configure
@@ -207,7 +208,7 @@ GetCell 参数 sheet编号 ，行，列  行和列必须大于等于1， 返回�
 
 
 ```
-$xav->GetCell(0，1，2);
+$xav->GetCell(0,1,2);
 ```
 
 #测试
@@ -216,7 +217,7 @@ $xav->GetCell(0，1，2);
 
 ```
 <?php
-echo memory_get_usage(), '<br />'; // 313864 
+echo memory_get_usage(), '<br />'; 
  $starttime = explode(' ',microtime());
  echo microtime();
 
@@ -243,14 +244,14 @@ for($rowIndex=2;$rowIndex<=$allRow;$rowIndex++){
  $thistime = round($thistime,3);
  echo "执行耗时：".$thistime." 秒。".time();
 
- echo "消耗内存:".memory_get_usage(); // 313952 
+ echo "消耗内存:".memory_get_usage(); 
 ```
 
 采用xavxls提示 执行耗时：39.002 秒。消耗内存:358000
 
 ```
 <?php
-echo memory_get_usage(), '<br />'; // 313864 
+echo memory_get_usage(), '<br />'; 
  $starttime = explode(' ',microtime());
  echo microtime();
 $xav=new Xavxls();
@@ -271,9 +272,17 @@ for($i=1;$i<$row;$i++){
  $thistime = round($thistime,3);
  echo "执行耗时：".$thistime." 秒。".time();
 
- echo "消耗内存:".memory_get_usage(); // 313952 
+ echo "消耗内存:".memory_get_usage(); 
 
 ```
 
 对于1-2M的excel都是0.2-0.4s就处理完了，用phpexcel肯定需要好几秒
 
+
+358000byte=0.341415M内存  采用xavxls后处理14.6M的excel才消耗这么点内存，是不是很省，同时速度也很快
+
+
+支持捐款，有你的支持，Xavxls会更加完善
+
+![支付宝](http://git.oschina.net/uploads/images/2017/0105/143525_edbb5e09_2158.jpeg  "在这里输入图片标题")
+![微信](http://git.oschina.net/uploads/images/2017/0105/143534_1a3baf92_2158.jpeg  "在这里输入图片标题")
