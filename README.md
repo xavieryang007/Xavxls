@@ -37,8 +37,7 @@ PHP-CPP-LEGACY PHP5.X版本  github下载地址 [https://github.com/CopernicaMar
 ###编译LIBXLS
 libxls项目地址[http://libxls.sourceforge.net/](http://libxls.sourceforge.net/)
 libxls是一个跨平台的xls读取库
-上传的时候libxls的权限丢失了，所以需要修改一下权限
-
+上传的时候libxls的权限丢失了，所以需要修改一下权限,如果官网下载，请注意版本，最新版本和开发xavxls的版本不兼容
 ```
 chmod +x configure
 ```
