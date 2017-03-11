@@ -65,8 +65,8 @@ INI 				=	${NAME}.ini
 #	library file. By default, g++ (the GNU C++ compiler) is used for both.
 #
 
-COMPILER			=	clang
-LINKER				=	clang
+COMPILER			=	cc
+LINKER				=	cc
 
 
 #
